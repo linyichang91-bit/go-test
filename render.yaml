@@ -1,1 +1,16 @@
-
+# Exported from Render on 2026-05-11T07:25:04Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: go-test
+      runtime: go
+      repo: https://github.com/linyichang91-bit/go-test
+      plan: starter
+      region: ohio
+      buildCommand: go build -tags netgo -ldflags '-s -w' -o app
+      startCommand: ./app
+      autoDeployTrigger: commit
